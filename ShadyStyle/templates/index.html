@@ -1,0 +1,315 @@
+{% extends 'layout.html'%}
+
+
+{% block content %}
+
+<header>
+   <!-- header inner -->
+   <div class="header">
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+               <div class="full">
+               <div class="center-desk">
+                   <div class="logo">
+                       <a href="{% url 'index' %}"><img src="media/images/logo.png" alt="#" /></a>
+                   </div>
+               </div>
+               </div>
+           </div>
+           <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+               <nav class="navigation navbar navbar-expand-md navbar-dark ">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarsExample04">
+                   <ul class="navbar-nav mr-auto">
+                       <li class="nav-item active">
+                           <a class="nav-link" href="{% url 'index' %}">Home</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="{% url 'about' %}">About</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="{% url 'glasses' %}">Our Glasses</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                       </li>
+                       <li class="nav-item d_none login_btn">
+                           <a class="nav-link" href="#">Login</a>
+                       </li>
+                       <li class="nav-item d_none">
+                           <a class="nav-link" href="#">Register</a>
+                       </li>
+                       <li class="nav-item d_none sea_icon">
+                           <a class="nav-link" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i><i class="fa fa-search" aria-hidden="true"></i></a>
+                       </li>
+                   </ul>
+               </div>
+               </nav>
+           </div>
+       </div>
+   </div>
+   </div>
+</header>
+
+
+<!-- banner -->
+<section class="banner_main">
+   <div id="banner1" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+         <li data-target="#banner1" data-slide-to="0" class="active"></li>
+         <li data-target="#banner1" data-slide-to="1"></li>
+         <li data-target="#banner1" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+   
+         <div class="carousel-item active">
+            <div class="container">
+               <div class="carousel-caption">
+                  <div class="text-bg">
+                     <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
+                     <figure><img src="media/images/banner_img.png" alt="#"/></figure>
+                     <a class="read_more" href="#">Shop Now</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
+         <div class="carousel-item">
+            <div class="container">
+               <div class="carousel-caption">
+                  <div class="text-bg">
+                     <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
+                     <figure><img src="media/images/banner_img.png" alt="#"/></figure>
+                     <a class="read_more" href="#">Shop Now</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="carousel-item">
+            <div class="container">
+               <div class="carousel-caption">
+                  <div class="text-bg">
+                     <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
+                     <figure><img src="media/images/banner_img.png" alt="#"/></figure>
+                     <a class="read_more" href="#">Shop Now</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </a>
+      <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </a>
+   </div>
+</section>
+<!-- end banner -->
+<!-- about section -->
+<div class="about">
+   <div class="container">
+      <div class="row d_flex">
+         <div class="col-md-5">
+            <div class="about_img">
+               <figure><img src="media/images/about_img.png" alt="#"/></figure>
+            </div>
+         </div>
+         <div class="col-md-7">
+            <div class="titlepage">
+               <h2>About Our Shop</h2>
+               <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+            </div>
+            <a class="read_more" href="#">Read More</a>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- about section -->
+<!-- Our  Glasses section -->
+<div class="glasses">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-10 offset-md-1">
+            <div class="titlepage">
+               <h2>Our Glasses</h2>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor
+                  e et dolore magna aliqua. Ut enim ad minim veniam, qui
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+   
+   <div class="container-fluid">
+      <div class="row">
+
+         {% for glass in sunglass %}
+         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="glasses_box">
+               <figure><img src="{{ glass.img.url }}" alt="#"/></figure>
+               <h3><span class="blu">$</span>{{ glass.price }}</h3>
+               <p>{{ glass.name }}</p>
+            </div>
+         </div>
+         {% endfor %}
+         
+         <div class="col-md-12">
+            <a class="read_more" href="#">Read More</a>
+         </div>
+
+      </div>
+   </div>
+</div>
+<!-- end Our  Glasses section -->
+<!-- Our shop section -->
+<div id="about" class="shop">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-5">
+            <div  class="shop_img">
+               <figure><img src="media/images/shop_img.png" alt="#"/></figure>
+            </div>
+         </div>
+         <div class="col-md-7 padding_right0">
+            <div class="max_width">
+               <div class="titlepage">
+                  <h2>Best SunGlasses  At Our shop</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                  <a class="read_more" href="#">Shop Now</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end Our shop section -->
+<!-- clients section -->
+<div class="clients">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>What say our clients</h2>
+               <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div id="myCarousel" class="carousel slide clients_Carousel " data-ride="carousel">
+               <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+               </ol>
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="container">
+                        <div class="carousel-caption ">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="clients_box">
+                                    <figure><img src="media/images/our.png" alt="#"/></figure>
+                                    <h3>Sandy Mark</h3>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="container">
+                        <div class="carousel-caption">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="clients_box">
+                                    <figure><img src="media/images/our.png" alt="#"/></figure>
+                                    <h3>Sandy Mark</h3>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="container">
+                        <div class="carousel-caption">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <div class="clients_box">
+                                    <figure><img src="media/images/our.png" alt="#"/></figure>
+                                    <h3>Sandy Mark</h3>
+                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+               <i class='fa fa-angle-left'></i>
+               </a>
+               <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+               <i class='fa fa-angle-right'></i>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end clients section -->
+<!-- contact section -->
+<div id="contact" class="contact">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <form id="request" class="main_form">
+               <div class="row">
+                  <div class="col-md-12 ">
+                     <h3>Contact Us</h3>
+                  </div>
+                  <div class="col-md-12 ">
+                     <input class="contactus" placeholder="Name" type="type" name="Name"> 
+                  </div>
+                  <div class="col-md-12">
+                     <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number"> 
+                  </div>
+                  <div class="col-md-12">
+                     <input class="contactus" placeholder="Email" type="type" name="Email">                          
+                  </div>
+                  <div class="col-md-12">
+                     <input class="contactusmess" placeholder="Message" type="type" Message="Name">
+                  </div>
+                  <div class="col-md-12">
+                     <button class="send_btn">Send</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+   <div class="container-fluid">
+      <div class="map_section">
+         <div id="map">
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<!-- end contact section -->
+<!--  footer -->
+
+<!-- end footer -->
+
+{% endblock %}

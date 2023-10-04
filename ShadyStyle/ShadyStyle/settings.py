@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-jk%zxbsmj_m&hsuto7w-!eyyzv^c18)3&qudbuf&x0f6y*^ag*'
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = False
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.environ.get('DEBUG')
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
@@ -94,8 +94,8 @@ DATABASES = {
     }
 }
 
-database_url = 'postgres://sungano:Xpt3hAoxYkbZZq2Z0g3szAQRyaVgPwIz@dpg-ck4r2n6ct0pc73fccjkg-a.oregon-postgres.render.com/sunglasses'
-
+#database_url = 'postgres://sungano:Xpt3hAoxYkbZZq2Z0g3szAQRyaVgPwIz@dpg-ck4r2n6ct0pc73fccjkg-a.oregon-postgres.render.com/sunglasses'
+database_url = os.environ.get('DATABASE_URL')
 DATABASES['default'] = dj_database_url.parse(database_url)
 
 

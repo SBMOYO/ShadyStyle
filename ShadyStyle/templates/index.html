@@ -34,7 +34,7 @@
                            <a class="nav-link" href="{% url 'glasses' %}">Our Glasses</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+                           <a class="nav-link" href="{% url 'cart' %}">Cart</a>
                        </li>
                        <li class="nav-item">
                            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
@@ -74,7 +74,7 @@
                   <div class="text-bg">
                      <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
                      <figure><img src="media/images/banner_img.png" alt="#"/></figure>
-                     <a class="read_more" href="#">Shop Now</a>
+                     <a class="read_more" href="{% url 'glasses' %}">Shop Now</a>
                   </div>
                </div>
             </div>
@@ -86,7 +86,7 @@
                   <div class="text-bg">
                      <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
                      <figure><img src="media/images/banner_img.png" alt="#"/></figure>
-                     <a class="read_more" href="#">Shop Now</a>
+                     <a class="read_more" href="{% url 'glasses' %}">Shop Now</a>
                   </div>
                </div>
             </div>
@@ -97,7 +97,7 @@
                   <div class="text-bg">
                      <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
                      <figure><img src="media/images/banner_img.png" alt="#"/></figure>
-                     <a class="read_more" href="#">Shop Now</a>
+                     <a class="read_more" href="{% url 'glasses' %}">Shop Now</a>
                   </div>
                </div>
             </div>
@@ -124,7 +124,8 @@
          <div class="col-md-7">
             <div class="titlepage">
                <h2>About Our Shop</h2>
-               <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+               <p>Welcome to ShadyStyle, your one-stop online shop for all things sunglasses.
+                  At ShadyStyle, we believe that sunglasses are more than just a fashion accessory - they’re a statement of style, a form of self-expression, and a shield from the sun’s rays. That’s why we’ve dedicated ourselves to providing a diverse range of high-quality sunglasses to suit every style and need.</p>
             </div>
             <a class="read_more" href="#">Read More</a>
          </div>
@@ -139,8 +140,7 @@
          <div class="col-md-10 offset-md-1">
             <div class="titlepage">
                <h2>Our Glasses</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor
-                  e et dolore magna aliqua. Ut enim ad minim veniam, qui
+               <p>At ShadyStyle, we take pride in the variety and quality of the glasses we offer. Our collection features a diverse range of styles, from classic aviators to trendy oversized frames, ensuring there’s something for everyone. Each pair is crafted with care, using high-quality materials for durability and comfort. Whether you’re looking for a bold fashion statement or a subtle complement to your everyday look, you’ll find it at ShadyStyle.
                </p>
             </div>
          </div>
@@ -152,7 +152,7 @@
       <div class="row">
 
          {% for glass in sunglass %}
-         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6" onclick="getSunglassPage('{{ glass.id }}'); pageLoading()">
             <div class="glasses_box">
                <figure><img src="{{ glass.img.url }}" alt="#"/></figure>
                <h3><span class="blu">$</span>{{ glass.price }}</h3>
@@ -182,8 +182,8 @@
             <div class="max_width">
                <div class="titlepage">
                   <h2>Best SunGlasses  At Our shop</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                  <a class="read_more" href="#">Shop Now</a>
+                  <p>Discover the best of eyewear at ShadyStyle. Our “Best Sunglasses” section showcases a curated selection of top-rated sunglasses, loved by our customers for their style, comfort, and quality. These glasses represent the perfect blend of fashion and function, offering superior UV protection while ensuring you stay at the forefront of eyewear trends. Explore our “Best Sunglasses” today and find your new favorite pair!</p>
+                  <a class="read_more" href="{% url 'glasses' %}">Shop Now</a>
                </div>
             </div>
          </div>
@@ -198,7 +198,7 @@
          <div class="col-md-12">
             <div class="titlepage">
                <h2>What say our clients</h2>
-               <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
+               <p>Our clients are at the heart of everything we do at ShadyStyle. Here’s what some of them have to say about their experience with us:</p>
             </div>
          </div>
       </div>
@@ -217,9 +217,9 @@
                            <div class="row">
                               <div class="col-md-12">
                                  <div class="clients_box">
-                                    <figure><img src="media/images/our.png" alt="#"/></figure>
-                                    <h3>Sandy Mark</h3>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                    <figure><img src="media/images/sungano1.png" alt="#"/></figure>
+                                    <h3>SBM.</h3>
+                                    <p>“ShadyStyle offers an amazing variety of sunglasses. The quality is top-notch and the shopping experience is seamless.”</p>
                                  </div>
                               </div>
                            </div>
@@ -232,9 +232,9 @@
                            <div class="row">
                               <div class="col-md-12">
                                  <div class="clients_box">
-                                    <figure><img src="media/images/our.png" alt="#"/></figure>
-                                    <h3>Sandy Mark</h3>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                    <figure><img src="media/images/sungano1.png" alt="#"/></figure>
+                                    <h3>B MOYO.</h3>
+                                    <p>“I love my new pair of aviators from ShadyStyle. They’re stylish, comfortable, and offer great UV protection.”</p>
                                  </div>
                               </div>
                            </div>
@@ -247,9 +247,9 @@
                            <div class="row">
                               <div class="col-md-12">
                                  <div class="clients_box">
-                                    <figure><img src="media/images/our.png" alt="#"/></figure>
-                                    <h3>Sandy Mark</h3>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                    <figure><img src="media/images/sungano1.png" alt="#"/></figure>
+                                    <h3>S MOYO.</h3>
+                                    <p>“The customer service at ShadyStyle is impressive. They were responsive and helped me choose the perfect pair of shades.”</p>
                                  </div>
                               </div>
                            </div>

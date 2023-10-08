@@ -21,6 +21,8 @@
       <link rel="stylesheet" href="{% static 'css/style.css' %}">
       <!-- Responsive-->
       <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+      <!--cart styling-->
+      <link rel="stylesheet" href="{% static 'css/cart.css' %}">
       <!-- fevicon -->
       <link rel="icon" href="media/images/fevicon.png" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
@@ -75,7 +77,6 @@
             </div>
         </footer>
 
-        <!-- Javascript files for index.html-->
         <!-- Javascript files-->
         <script src="{% static 'js/jquery.min.js' %}"></script>
         <script src="{% static 'js/popper.min.js' %}"></script>
@@ -84,9 +85,12 @@
         <!-- sidebar -->
         <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
+        <!-- event handlers -->
+        <script src="{% static 'js/index.js' %}"></script>
+
+        <!-- google map -->
         <script>
-        // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-        // Australia.
+    
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 11,

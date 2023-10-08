@@ -1,10 +1,9 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html'%}
 
 
 {% block content %}
 
- <!-- header -->
- <header>
+<header>
    <!-- header inner -->
    <div class="header">
       <div class="container-fluid">
@@ -31,10 +30,10 @@
                         <li class="nav-item">
                            <a class="nav-link" href="{% url 'about' %}">About</a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                            <a class="nav-link" href="{% url 'glasses' %}">Our Glasses</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                            <a class="nav-link" href="{% url 'cart' %}">Cart</a>
                         </li>
                         <li class="nav-item">
@@ -57,44 +56,93 @@
       </div>
    </div>
 </header>
-<!-- end header inner -->
-<!-- end header -->
 
 
-<!-- Our  Glasses section -->
+
 <div class="glasses">
    <div class="container">
       <div class="row">
          <div class="col-md-10 offset-md-1">
             <div class="titlepage">
-               <h2>Our Glasses</h2>
-               <p>At ShadyStyle, we take pride in the variety and quality of the glasses we offer. Our collection features a diverse range of styles, from classic aviators to trendy oversized frames, ensuring there’s something for everyone. Each pair is crafted with care, using high-quality materials for durability and comfort. Whether you’re looking for a bold fashion statement or a subtle complement to your everyday look, you’ll find it at ShadyStyle.
+               <h2>Your Shopping Cart</h2>
+               <p>If you happen to find sunglasses you like, you can add them to your cart. If you want to remove an item from your cart, simply click the remove button. The total price of your cart will be updated accordingly.
                </p>
             </div>
          </div>
       </div>
    </div>
+
    <div class="container-fluid">
       <div class="row">
-         {% for glass in sunglass%}
+
          
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6" onclick="getSunglassPage('{{ glass.id }}'); pageLoading()">
-               <div class="glasses_box">
-                  <figure><img src="{{ glass.img.url }}" alt="#"/></figure>
-                  <h3><span class="blu">$</span>{{ glass.price }}</h3>
-                  <p>{{ glass.name }}</p>
+         <!-- Shopping Cart -->
+         <h1>Shopping Cart</h1>
+
+         <div class="shopping-cart">
+
+            <div class="column-labels">
+               <label class="product-image">Image</label>
+               <label class="product-details">Product</label>
+               <label class="product-price">Price</label>
+               <label class="product-quantity">Quantity</label>
+               <label class="product-removal">Remove</label>
+               <label class="product-line-price">Total</label>
+            </div>
+
+            <div class="product">
+               <div class="product-image">
+                  <img src="media/images/about_img.png">
+               </div>
+               <div class="product-details">
+                  <div class="product-title">sunglass placeholder</div>
+                  <p class="product-description">This is a placeholder for a sunglass product. it is not part of your shopping-cart. It will be removed as soon as you add an item in your shopping-cart</p>
+               </div>
+               <div class="product-price">0.00</div>
+               <div class="product-quantity">
+                  <input type="number" value="2" min="1">
+               </div>
+               <div class="product-removal">
+                  <button class="remove-product">
+                  Remove
+                  </button>
+               </div>
+               <div class="product-line-price">0.00</div>
+            </div>
+
+            <p id="empty-cart-message" style="display: none;">Your cart is empty.</p>
+
+            <div class="totals">
+               <div class="totals-item">
+                  <label>Subtotal</label>
+                  <div class="totals-value" id="cart-subtotal">0.00</div>
+               </div>
+               <div class="totals-item">
+                  <label>Tax (5%)</label>
+                  <div class="totals-value" id="cart-tax">3.60</div>
+               </div>
+               <div class="totals-item">
+                  <label>Shipping</label>
+                  <div class="totals-value" id="cart-shipping">15.00</div>
+               </div>
+               <div class="totals-item totals-item-total">
+                  <label>Grand Total</label>
+                  <div class="totals-value" id="cart-total">90.57</div>
                </div>
             </div>
-         
-         {% endfor %}
-         
-         <div class="col-md-12">
-            <a class="read_more" href="#">Read More</a>
+                  
+                  <button class="read_more">Checkout</button>
+                  
+
          </div>
+         <!-- end of Shopping Cart -->
+
       </div>
    </div>
-</div>
-<!-- end Our  Glasses section -->
+   <div style="height: 4em;">
+
+   </div>
+
+
 
 {% endblock %}
-

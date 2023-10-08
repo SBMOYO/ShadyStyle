@@ -97,7 +97,7 @@ DATABASES = {
     }
 }
 
-#database_url = 'postgres://sungano:Xpt3hAoxYkbZZq2Z0g3szAQRyaVgPwIz@dpg-ck4r2n6ct0pc73fccjkg-a.oregon-postgres.render.com/sunglasses'
+# database_url = 'postgres://sungano:Xpt3hAoxYkbZZq2Z0g3szAQRyaVgPwIz@dpg-ck4r2n6ct0pc73fccjkg-a.oregon-postgres.render.com/sunglasses'
 database_url = os.environ.get('DATABASE_URL')
 DATABASES['default'] = dj_database_url.parse(database_url)
 

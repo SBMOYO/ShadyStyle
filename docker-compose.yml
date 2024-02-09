@@ -1,9 +1,7 @@
 version: '3'
-networks:
-  bridge-network:
 services:
   web:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     ports:
@@ -12,6 +10,7 @@ services:
       - ./ShadyStyle:/app
     networks:
       - bridge-network
+
   db:
     image: postgres
     environment:
@@ -22,7 +21,7 @@ services:
       - db-data:/var/lib/postgresql/data
     networks:
       - bridge-network
-  
+
   nginx:
     image: nginx:latest
     ports:
@@ -34,5 +33,7 @@ services:
     networks:
       - bridge-network
 
+networks:
+  bridge-network:
 volumes:
   db-data:

@@ -1,4 +1,6 @@
 version: '3'
+networks:
+  bridge-network:
 services:
   web:
     build: 
@@ -8,6 +10,8 @@ services:
       - "5000:5000"
     volumes:
       - ./ShadyStyle:/app
+    networks:
+      - bridge-network
   db:
     image: postgres
     environment:
@@ -16,6 +20,8 @@ services:
       POSTGRES_DB: 'db'
     volumes:
       - db-data:/var/lib/postgresql/data
+    networks:
+      - bridge-network
   
   nginx:
     image: nginx:latest

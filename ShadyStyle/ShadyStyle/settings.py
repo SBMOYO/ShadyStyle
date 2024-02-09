@@ -25,17 +25,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-jk%zxbsmj_m&hsuto7w-!eyyzv^c18)3&qudbuf&x0f6y*^ag*'
 SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-jk%zxbsmj_m&hsuto7w-!eyyzv^c18)3&qudbuf&x0f6y*^ag*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+# DEBUG = False
 DEBUG = os.environ.get('DEBUG')
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 # ALLOWED_HOSTS = ["*"]
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME]
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -89,18 +90,13 @@ WSGI_APPLICATION = 'ShadyStyle.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sunglasses',
+        'NAME': 'db',
         'USER': 'sungano',
-        'PASSWORD': 'simplepassword',
-        'HOST': 'localhost',  # Replace with your PostgreSQL server's address if necessary
-        'PORT': '5432',          # Leave empty to use the default PostgreSQL port (usually 5432)
+        'PASSWORD': '19981123',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
-
-# database_url = 'postgres://sungano:Xpt3hAoxYkbZZq2Z0g3szAQRyaVgPwIz@dpg-ck4r2n6ct0pc73fccjkg-a.oregon-postgres.render.com/sunglasses'
-database_url = os.environ.get('DATABASE_URL')
-DATABASES['default'] = dj_database_url.parse(database_url)
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

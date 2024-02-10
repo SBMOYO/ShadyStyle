@@ -1,15 +1,6 @@
 version: '3'
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./ShadyStyle:/app
-    networks:
-      - bridge-network
+  
 
   db:
     image: postgres
@@ -19,6 +10,20 @@ services:
       POSTGRES_DB: 'db'
     volumes:
       - db-data:/var/lib/postgresql/data
+    networks:
+      - bridge-network
+
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./ShadyStyle:/app
+    depends_on:
+      - db
     networks:
       - bridge-network
 
@@ -35,5 +40,7 @@ services:
 
 networks:
   bridge-network:
+    driver: bridge
+
 volumes:
   db-data:

@@ -1,9 +1,9 @@
 #!/bin/sh
 
 # Wait for the database to be available
-# while ! nc -z db 5432; do
-#   sleep 1
-# done
+while ! nc -z sunglassshop-db-1 5432; do
+  sleep 1
+done
 
 # Run Django database migrations
 python manage.py migrate --noinput

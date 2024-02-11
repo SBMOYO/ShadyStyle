@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'db',
         'USER': 'sungano',
         'PASSWORD': '19981123',
-        'HOST': '172.18.0.2',
+        'HOST': 'sunglassshop-db-1',
         'PORT': '5432',
     }
 }

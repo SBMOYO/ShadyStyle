@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jk%zxbsmj_m&hsuto7w-!eyyzv^c18)3&qudbuf&x0f6y*^ag*'
-# SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-jk%zxbsmj_m&hsuto7w-!eyyzv^c18)3&qudbuf&x0f6y*^ag*'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.environ.get('DEBUG')
+# DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 # ALLOWED_HOSTS = ["*"]
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -90,11 +90,11 @@ WSGI_APPLICATION = 'ShadyStyle.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'db',
-        'USER': 'sungano',
-        'PASSWORD': '19981123',
-        'HOST': 'sunglassshop-db-1',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'db'),
+        'USER': os.getenv('DB_USER', 'sungano'),
+        'PASSWORD': os.getenv('DB_PASSWORD', '19981123'),
+        'HOST': os.getenv('DB_HOST', 'sunglassshop-db-1'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 

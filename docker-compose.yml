@@ -24,6 +24,9 @@ services:
       - ./ShadyStyle:/app
     depends_on:
       - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
     networks:
       - bridge-network
 

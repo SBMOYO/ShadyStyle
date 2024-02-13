@@ -87,15 +87,20 @@ WSGI_APPLICATION = 'ShadyStyle.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME', 'db'),
+#         'USER': os.getenv('DB_USER', 'sungano'),
+#         'PASSWORD': os.getenv('DB_PASSWORD', '19981123'),
+#         'HOST': os.getenv('DB_HOST', 'sunglassshop-db-1'),
+#         'PORT': os.getenv('DB_PORT', '5432'),
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'db'),
-        'USER': os.getenv('DB_USER', 'sungano'),
-        'PASSWORD': os.getenv('DB_PASSWORD', '19981123'),
-        'HOST': os.getenv('DB_HOST', 'sunglassshop-db-1'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
+    'default': dj_database_url.config(default='postgres://shadystyle_database_user:yxgztGwBXwxMFqIwQkPdt3LCdYw8zuSd@dpg-cn5jrlen7f5s738ie0qg-a/shadystyle_database')
 }
 
 # Password validation

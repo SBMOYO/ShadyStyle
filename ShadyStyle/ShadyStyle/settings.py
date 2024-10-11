@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-jk%zxbsmj_m&hsuto7w-!eyyzv^c18)3&qudbuf&x0f6y*^ag*'
+#SECRET_KEY = 'django-insecure-jk%zxbsmj_m&hsuto7w-!eyyzv^c18)3&qudbuf&x0f6y*^ag*'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'ShadyStyle.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://shadystyle_database_user:yxgztGwBXwxMFqIwQkPdt3LCdYw8zuSd@dpg-cn5jrlen7f5s738ie0qg-a/shadystyle_database')
+    'default': dj_database_url.config(default='postgresql://shadystyle_database_jm7s_user:UOhRbajF0S5oKZVqZ4jVWoJeDVVtBcoi@dpg-cs38551u0jms7396hbkg-a/shadystyle_database_jm7s')
 }
 
 # Password validation
